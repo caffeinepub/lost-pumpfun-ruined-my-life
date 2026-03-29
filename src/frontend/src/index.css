@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "BricolageGrotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GeneralSans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 200 700;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.375rem;
+    --background: 0.1 0.012 265;
+    --foreground: 0.93 0.01 90;
+    --card: 0.14 0.015 265;
+    --card-foreground: 0.93 0.01 90;
+    --popover: 0.16 0.015 265;
+    --popover-foreground: 0.93 0.01 90;
+    --primary: 0.85 0.24 140;
+    --primary-foreground: 0.1 0.012 265;
+    --secondary: 0.18 0.015 265;
+    --secondary-foreground: 0.93 0.01 90;
+    --muted: 0.18 0.015 265;
+    --muted-foreground: 0.6 0.02 265;
+    --accent: 0.85 0.24 140;
+    --accent-foreground: 0.1 0.012 265;
+    --destructive: 0.55 0.22 28;
+    --destructive-foreground: 0.93 0.01 90;
+    --border: 0.22 0.02 265;
+    --input: 0.2 0.018 265;
+    --ring: 0.85 0.24 140;
+    --chart-1: 0.85 0.24 140;
+    --chart-2: 0.55 0.22 28;
+    --chart-3: 0.7 0.18 265;
+    --chart-4: 0.75 0.15 50;
+    --chart-5: 0.65 0.2 200;
+    --sidebar: 0.12 0.012 265;
+    --sidebar-foreground: 0.93 0.01 90;
+    --sidebar-primary: 0.85 0.24 140;
+    --sidebar-primary-foreground: 0.1 0.012 265;
+    --sidebar-accent: 0.18 0.015 265;
+    --sidebar-accent-foreground: 0.93 0.01 90;
+    --sidebar-border: 0.22 0.02 265;
+    --sidebar-ring: 0.85 0.24 140;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "GeneralSans", system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "BricolageGrotesque", system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 30s linear infinite;
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+  @keyframes marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .glitch-text {
+    position: relative;
+  }
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  }
+  .glitch-text::before {
+    animation: glitch-before 3s infinite;
+    color: oklch(0.85 0.24 140);
+    text-shadow: 2px 0 oklch(0.85 0.24 140);
+  }
+  .glitch-text::after {
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    animation: glitch-after 3s infinite;
+    color: oklch(0.55 0.22 28);
+    text-shadow: -2px 0 oklch(0.55 0.22 28);
+  }
+  @keyframes glitch-before {
+    0%,
+    90%,
+    100% {
+      transform: translateX(0);
+    }
+    92% {
+      transform: translateX(-3px);
+    }
+    94% {
+      transform: translateX(3px);
+    }
+    96% {
+      transform: translateX(-2px);
+    }
+  }
+  @keyframes glitch-after {
+    0%,
+    90%,
+    100% {
+      transform: translateX(0);
+    }
+    92% {
+      transform: translateX(3px);
+    }
+    94% {
+      transform: translateX(-3px);
+    }
+    96% {
+      transform: translateX(2px);
+    }
+  }
+
+  .neon-green {
+    color: oklch(0.85 0.24 140);
+    text-shadow: 0 0 10px oklch(0.85 0.24 140 / 0.5), 0 0 20px
+      oklch(0.85 0.24 140 / 0.3);
+  }
+
+  .neon-border {
+    box-shadow: 0 0 10px oklch(0.85 0.24 140 / 0.3), inset 0 0 10px
+      oklch(0.85 0.24 140 / 0.05);
+  }
+
+  .grit-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
+}
