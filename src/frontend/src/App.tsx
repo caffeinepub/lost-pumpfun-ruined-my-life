@@ -222,9 +222,9 @@ function Hero() {
         <div className="mb-8 relative">
           <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
           <img
-            src="/assets/uploads/img_4097-019d3790-6c15-7506-9bb3-a6f3ca700714-1.jpeg"
+            src="/assets/uploads/img_4097-019d37a8-a282-747a-bd7d-e4dd4b06a3d1-1.jpeg"
             alt="$LOST Logo"
-            className="relative w-48 h-48 md:w-64 md:h-64 object-contain rounded-2xl border-2 border-primary/30 shadow-neon"
+            className="relative w-56 h-56 md:w-80 md:h-80 object-contain rounded-none shadow-neon"
           />
         </div>
 
@@ -288,28 +288,21 @@ function Hero() {
 function Lore() {
   return (
     <section id="lore" className="relative py-20 px-4 overflow-hidden">
-      <div className="absolute inset-0 opacity-20">
-        <img
-          src="/assets/uploads/img_4094-019d3790-8060-7418-b655-26dc4335cef4-9.jpeg"
-          alt=""
-          className="w-full h-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background" />
-      </div>
-      <div className="relative z-10 max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <Skull className="text-primary" size={28} />
-            <h2 className="font-display font-black text-3xl md:text-5xl tracking-tight">
-              The <span className="neon-green">Lore</span>
-            </h2>
-          </div>
-          <div className="max-w-2xl">
+      <div className="relative z-10 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+          {/* Text column */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <Skull className="text-primary" size={28} />
+              <h2 className="font-display font-black text-3xl md:text-5xl tracking-tight">
+                The <span className="neon-green">Lore</span>
+              </h2>
+            </div>
             <p className="text-lg md:text-xl leading-relaxed text-foreground/90 mb-6">
               <span className="text-primary font-bold">$LOST</span> captures the
               collective regret of Pump.fun degens rekt by rugs and scams. 💀
@@ -340,8 +333,28 @@ function Lore() {
                 No Rugs
               </span>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+
+          {/* Images column */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="flex flex-col gap-4"
+          >
+            <img
+              src="/assets/uploads/img_4089-019d37a8-a417-7082-b06d-e371f348831f-2.jpeg"
+              alt="Lost soul sleeping on bench - illustrated banner"
+              className="w-full rounded-xl border border-primary/20 shadow-neon object-cover"
+            />
+            <img
+              src="/assets/uploads/img_4087-019d37a8-c8a7-728b-b8cb-ade7a14a4d88-5.jpeg"
+              alt="Woman dressed in newspapers holding $LOST sign"
+              className="w-full rounded-xl border border-primary/20 object-cover"
+            />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -536,6 +549,16 @@ function Mission() {
               <span className="text-primary">EVERYONE GETS A REAL CHANCE.</span>
             </p>
           </div>
+          {/* Toy Story meme image */}
+          <motion.img
+            src="/assets/uploads/img_4088-019d37a8-b877-7724-9afb-29c9774a9428-4.jpeg"
+            alt="Toy Story meme: Look, lives are being ruined everywhere"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="max-w-md mx-auto rounded-xl border border-primary/20 mt-8 w-full"
+          />
         </motion.div>
       </div>
     </section>
@@ -709,33 +732,38 @@ function Chart() {
 const communityTweets = [
   {
     id: "t1",
-    img: "/assets/uploads/img_4093-019d3790-757b-71d4-b1f2-3da80a1106ee-3.jpeg",
+    img: "/assets/uploads/img_4093-019d37a8-ae39-754a-8e00-6f0deeb6d01a-3.jpeg",
     alt: "Moby whale holders tweet",
   },
   {
     id: "t2",
-    img: "/assets/uploads/img_4090-019d3790-7b35-751e-af75-5ffadcadc988-4.jpeg",
-    alt: "Quinbtc Eat this dip tweet",
-  },
-  {
-    id: "t3",
-    img: "/assets/uploads/img_4092-019d3790-7b36-700c-9a38-f3c3f8ac9610-5.jpeg",
-    alt: "Quinbtc Raid tweet",
-  },
-  {
-    id: "t4",
-    img: "/assets/uploads/img_4091-019d3790-7c0a-7722-8d13-cc4b87e6839f-6.jpeg",
+    img: "/assets/uploads/img_4091-019d37a8-cafe-769f-973f-d3918cea9d70-6.jpeg",
     alt: "Officer George rug dream tweet",
   },
   {
+    id: "t3",
+    img: "/assets/uploads/img_4090-019d37a8-cb39-72d3-a36e-56fa311acd70-7.jpeg",
+    alt: "Quinbtc eat this dip tweet",
+  },
+  {
+    id: "t4",
+    img: "/assets/uploads/img_4094-019d37a8-cb64-765a-856e-20a95b35bc58-8.jpeg",
+    alt: "DonaldPump lost boys chads tweet",
+  },
+  {
     id: "t5",
-    img: "/assets/uploads/img_4096-019d3790-7c3d-718c-88cc-bfa19089bbbd-7.jpeg",
-    alt: "Quinbtc Lost & Found raid tweet",
+    img: "/assets/uploads/img_4095-019d37a8-cbdc-720c-96f8-92f45013c4c6-9.jpeg",
+    alt: "Venom WE NEED YOU JOIN LOST tweet",
   },
   {
     id: "t6",
-    img: "/assets/uploads/img_4095-019d3790-7e2f-77ab-a0bc-25cc5de27a2b-8.jpeg",
-    alt: "Venom WE NEED YOU tweet",
+    img: "/assets/uploads/img_4092-019d37a8-cc19-7721-a96e-3f042074b1c0-10.jpeg",
+    alt: "Quinbtc Raid lost tweet",
+  },
+  {
+    id: "t7",
+    img: "/assets/uploads/img_4096-019d37a8-cd21-7440-837c-2f4ff319b70f-11.jpeg",
+    alt: "Quinbtc Lost and Found raid tweet",
   },
 ];
 
